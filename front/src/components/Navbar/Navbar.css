@@ -1,0 +1,15 @@
+.navbar{
+  height: 5rem;
+  width: 100%;
+  background-color: #116;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.navbar .login-icon{
+  color: #fff;
+  margin: 0 5rem;
+}
+.navbar .login-icon:hover{
+  cursor: pointer;
+}

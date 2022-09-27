@@ -1,0 +1,62 @@
+.task-container{
+  margin: 5rem auto;
+  max-width: 600px;
+}
+.task-item{
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  margin: 1rem 0;
+  background-color: rgb(170, 219, 253);
+  padding:  1rem;
+  position: relative;
+}
+.task-container h2{
+  font-family: 'Roboto', sans-serif;
+  font-size: 3.5rem;
+  margin: 3rem;
+}
+.task-item:hover{
+  background-color: rgb(100, 184, 244);
+  cursor: pointer;
+}
+.task-item p{
+  margin: 0 2rem;
+}
+.task-item input.task-check{
+  transform: scale(2);
+}
+.task-item .trash{
+  right: 1.5rem;
+  position: absolute;
+}
+.task-item .trash:hover{
+  transform: scale(1.2);
+}
+.adder-task{
+  font-size: 1.6rem;
+  background-color: transparent;
+  padding:  1rem;
+  border: none;
+  outline: none;
+  margin: 0 1rem;
+  width: 88%;
+}
+.add-icon{
+  position: absolute;
+  right: 1.5rem;
+}
+.add-icon:hover{
+  cursor: pointer;
+  transform: scale(1.4);
+}
+.input-container{
+  font-size: 1.6rem;
+  margin: 1.5rem 0;
+  background-color: rgb(221, 239, 252);
+  border-bottom: 2px solid rgb(100, 184, 244);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}

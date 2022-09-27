@@ -23,7 +23,8 @@ const slice=createSlice({
             tasks.list[pos].done=true
         },
         taskRemoved: (tasks,action)=>{
-            tasks.list=tasks.list.filter(task=>task.id!==action.payload.id)
+            let newList=tasks.list.filter(task=>task.id!=action.payload.taskId)
+            tasks.list=newList
         },
         taskToUser: (tasks,action)=>{
             const { id,userId} = action.payload
@@ -44,7 +45,7 @@ const tasksReducer = slice.reducer
 export default tasksReducer
 const {taskAdded,taskDone,taskRemoved,taskToUser,tasksReceived,tasksRequested,tasksRequestFailed}=slice.actions
 
-const url='tasks'
+const url='tasks/'
 
 export const loadTasks=()=>(dispatch,getState)=>{
     /*
@@ -68,6 +69,13 @@ export const addTask=task=>apiCallBegan({
     data:task,
     onSuccess:taskAdded.type
 })
+export const removeTask=(taskId)=>apiCallBegan({
+    url:`${url}${taskId}`,
+    method:'delete',
+    data:{taskId},
+    onSuccess:taskRemoved.type
+})
+
 export const setTaskToUser=(taskId,userId)=>apiCallBegan({
     url,
     method:'put',
@@ -82,11 +90,11 @@ export const doTask=taskId=>apiCallBegan({
 })
 
 export const getUndoneTasks = createSelector(
-    state=>state.entities.tasks,
+    state=>state.entities.tasks.list || [],
     tasks => tasks.filter(task=>!task.done)
 )
 export const getTaskByUser= userId=> 
     createSelector(
-        state=>state.entities.tasks,
+        state=>state.entities.tasks || [],
         tasks=>tasks.filter(task=>task.userId===userId)
     )

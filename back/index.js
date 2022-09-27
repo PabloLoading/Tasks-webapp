@@ -6,12 +6,8 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-let lastId=3
-let tasks = [
-  { id: 1, description: "Morning netflix", done: false,},
-  { id: 2, description: "go for a walk", done: false},
-  { id: 3, description: "look at btc chart", done: true }
-];
+let tasks = [];
+lastId=1
 
 app.get("/api/tasks", (req, res) => {
   res.json(tasks);
@@ -32,6 +28,11 @@ app.put("/api/tasks",(req,res)=>{
   if(req.body.userId) task.userId=req.body.userId
   if(req.body.done)task.done=true
   res.send(task)
+})
+app.delete("/api/tasks/:id",(req,res)=>{
+  const id=req.params.id
+  tasks=tasks.filter(task=>task.id!=id)
+  res.send({taskId:id})
 })
 
 app.listen(9001, () => {

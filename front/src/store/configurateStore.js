@@ -5,16 +5,15 @@ import toastErrors from './middleware/toastErrors'
 import api from './middleware/api'
 import func from './middleware/func'
 
-export default ()=>{
+const createStore= ()=>{
     return configureStore({
         reducer,
         middleware:[
             ...getDefaultMiddleware(),
             func,
-            logger,
             toastErrors,
             api
         ]
     })
 }
-
+export default createStore
