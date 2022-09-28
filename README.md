@@ -5,7 +5,7 @@ Simple React-redux app to follow your daily tasks
 
 
 ```bash
-$ git clone https://github.com/PabloLoading/Sahoodies-Ecommerce.git
+$ git clone https://github.com/PabloLoading/Tasks-webapp
 ```
 In both front and back directory run:
 ```
