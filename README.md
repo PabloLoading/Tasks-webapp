@@ -1,6 +1,17 @@
-# Daily Task webapp
-
+# Project
 Simple React-redux app to follow your daily tasks
+
+# Run app locally
+
+
+```bash
+$ git clone https://github.com/PabloLoading/Sahoodies-Ecommerce.git
+```
+In both front and back directory run:
+```
+$ npm install
+$ npm start
+```
 
 # Demo
 
